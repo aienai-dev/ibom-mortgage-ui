@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Datepicker from "./datePicker";
 import Dropdown from "./dropdown";
 import Input, { PhoneInput } from "./input";
@@ -26,9 +26,12 @@ const ApplicationForm1 = ({
 }) => {
   const user = localStorage.user ? JSON.parse(localStorage.user) : {};
   const gender = ["Female", "Male"];
+  const [countryCode, setCountryCode] = useState("234");
+  const [countryCode2, setCountryCode2] = useState("234");
   const states = location.states();
 
   const getCities = (state) => {
+    console.log(state);
     return location.lgas(state);
   };
 
@@ -43,31 +46,8 @@ const ApplicationForm1 = ({
     if (form1.lga === "") error.lga = "Required*";
     if (form1.identity_type === "") error.identity_type = "Required*";
     if (form1.identity_number === "") error.identity_number = "Required*";
-    if (file === "" && form1.identity_image === "") error.identity_image = "Required*";
-    // if (form2.preferred_state === "") error.preferred_state = "Required*";
-    // if (form2.preferred_city === "") error.preferred_city = "Required*";
-    // if (form2.type_of_housing === "") error.type_of_housing = "Required*";
-    // if (form2.no_of_bedrooms == 0) error.no_of_bedrooms = "Required*";
-    // if (form2.housing_purpose === "") error.housing_purpose = "Required*";
-    // if (form2.budget === "") error.budget = "Required*";
-    // if (form2.preferred_area === "") error.preferred_area = "Required*";
-    // if (form2.customer_preference_feedback === "")
-    //   error.customer_preference_feedback = "Required*";
-    // if (form3.employment_status === "") error.employment_status = "Required*";
-    // if (form3.occupation === "") error.occupation = "Required*";
-    // if (form3.monthly_income === "") error.monthly_income = "Required*";
-    // if (form3.source_of_income === "") error.source_of_income = "Required*";
-    // if (
-    //   form3.loans_and_mortgage.out_standing == false &&
-    //   form3.loans_and_mortgage.loan_type === ""
-    // )
-    //   error.loan_type = "Required*";
-    // if (
-    //   form3.loans_and_mortgage.out_standing == false &&
-    //   form3.loans_and_mortgage.loan_amount === ""
-    // )
-    //   error.loan_amount = "Required*";
-    // if (form3.proof_of_income === "") error.proof_of_income = "Required*";
+    if (file === "" && form1.identity_image === "")
+      error.identity_image = "Required*";
     return error;
   };
 
@@ -130,8 +110,10 @@ const ApplicationForm1 = ({
             type="text"
             name="phone_number"
             required={true}
+            countryCode={countryCode}
             value={user?.phone_number?.slice(3)}
             disabled={true}
+            setCountryCode={setCountryCode}
             handleChange={(e) => handleChange(e, "form1")}
             placeholder="Enter Phone Number"
           />
@@ -141,8 +123,10 @@ const ApplicationForm1 = ({
             label="Whatsapp Number"
             type="text"
             name="whatsapp_number"
+            countryCode={countryCode2}
             value={user?.whatsapp_number ? user?.whatsapp_number?.slice(3) : ""}
             disabled={true}
+            setCountryCode={setCountryCode2}
             handleChange={(e) => handleChange(e, "form1")}
             placeholder="Enter Whatsapp Number"
           />

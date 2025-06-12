@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 const Dropdown = ({
   placeholder,
@@ -75,7 +76,7 @@ const Dropdown = ({
             >
               {selectedOption === "" ? placeholder : selectedOption}
             </span>
-            <img className="w-[16px] h-[16px]" src={arrow} alt="" />
+            <FiChevronDown className="w-[16px] h-[16px] text-slate-400" />
           </div>
           <span className="text-[12px] text-red-600 h-[16px]">{error}</span>
         </div>

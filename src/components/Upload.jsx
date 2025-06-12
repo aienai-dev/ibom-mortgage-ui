@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaFilePdf, FaImage } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 const Upload = ({ value, label, isRequired, handleUpload, error, update }) => {
   const upload =
@@ -41,7 +42,7 @@ const Upload = ({ value, label, isRequired, handleUpload, error, update }) => {
       </div>
       <div className="flex flex-col border border-dashed border-[#DED8D8]  relative gap-[16px] justify-center items-center min-h-[175px] rounded-[10px] w-full">
         <span className="w-[48px] h-[48p] bg-[#F9FAFB] flex items-center justify-center rounded-full">
-          <img className="w-[48px] h-[48px]" src={upload} alt="" />
+          <FaCloudUploadAlt className="text-[48px] text-[#338330]" />
         </span>
         <span className="font-[400] text-[16px] text-[#475467]">
           <span className="font-[500] text-[#338330]">Click to Upload </span>

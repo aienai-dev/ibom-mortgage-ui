@@ -193,7 +193,7 @@ export const PhoneInput = ({
   error,
   placeholder,
   required,
-  countryCode,
+  countryCode = "234",
   setCountryCode,
 }) => {
   const [showCodes, setShowCodes] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { application_stale_data, ui_data } from "../constants/static";
@@ -18,10 +18,12 @@ import EditUserDetails from "../components/EditUserDetails";
 
 const { videoStyle, stepPages, navItems, card1, card2, card3 } =
   application_stale_data;
+
 const { heroVideo } = ui_data;
 
 const Home = () => {
   const user = localStorage.user ? JSON.parse(localStorage.user) : {};
+  const videoRef = useRef(null);
 
   const [activeCompliance, setActiveCompliance] = useState(false);
 
@@ -195,7 +197,7 @@ const Home = () => {
         setActiveCompliance(true);
         localStorage.setItem(
           "compliance",
-          JSON.stringify(res.data.data.compliance),
+          JSON.stringify(res.data.data.compliance)
           // setUserEdit(true),
         );
       })
@@ -212,9 +214,9 @@ const Home = () => {
       });
     // }
   };
-  const editCompliance =()=>{
+  const editCompliance = () => {
     setUserEdit(true);
-  }
+  };
   const uploadDocs = async (id) => {
     const formData1 = new FormData();
     const formData2 = new FormData();
@@ -301,22 +303,39 @@ const Home = () => {
       }
     }
   };
-  // console.log(formLoading);
-  useEffect(() => {
-    if (!localStorage.access_token) navigate("/login");
-    else getCompliance();
-    // eslint-disable-next-line
-  }, []);
   const logout = () => {
     localStorage.clear();
     navigate("/");
   };
 
+  useEffect(() => {
+    if (!localStorage.access_token) navigate("/login");
+    else getCompliance();
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch((error) => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center">
       <Navbar navItems={navItems} action={logout} actionName={"Log Out"} />
       <div className="w-full min-h-[600px] relative overflow-hidden px-[20px] md:ps-[100px] flex items-center">
-        <video autoPlay loop muted style={videoStyle} type="video/mp4">
+        <video
+          ref={videoRef}
+          loop
+          muted
+          playsInline
+          preload="auto"
+          style={videoStyle}
+          type="video/mp4"
+        >
           <source src={heroVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -507,7 +526,10 @@ const Home = () => {
                   {/* <span className="h-[40px] flex items-center px-[14px] underline mt-4  text-[#11B981]">
               <a href="https://mail.google.com/mail/u/">Check Your Email</a>
             </span> */}
-                  <button onClick={editCompliance} className="max-w-[295px] flex justify-center items-center cursor-pointer w-full bg-[#3D454E] text-[#FAFAFA] text-[14px] font-[500] rounded-[8px] py-[12px] px-[32px] h-[56px]">
+                  <button
+                    onClick={editCompliance}
+                    className="max-w-[295px] flex justify-center items-center cursor-pointer w-full bg-[#3D454E] text-[#FAFAFA] text-[14px] font-[500] rounded-[8px] py-[12px] px-[32px] h-[56px]"
+                  >
                     Edit Application
                   </button>
                 </div>

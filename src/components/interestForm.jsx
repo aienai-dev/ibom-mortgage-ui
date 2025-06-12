@@ -183,8 +183,7 @@ const InterestForm = () => {
                   Expression of Interest
                 </span>
                 <span className="text-[14px] text-center md:text-left font-[400] text-[#475467]">
-                  Start the process of getting early access to FHA’s Renewed
-                  Hope Estates.
+                  Start the process of getting early access to IBOM MORTGAGEs.
                 </span>
               </div>
               <div className="sm:grid flex flex-col w-full sm:grid-cols-3 items-center gap-[20px]">

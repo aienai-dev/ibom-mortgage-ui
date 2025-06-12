@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "../components/navbar";
 import Quotebox from "../components/quoteBox";
 import Accordion from "../components/accordion";
@@ -9,6 +9,7 @@ import {
   navItems,
   quotes,
   application_stale_data,
+  ui_data,
 } from "../constants/static";
 import img1 from "../assets/images/Yetunde.svg";
 // img2: "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102734/Tinubu_d8zuhq.svg",
@@ -17,8 +18,11 @@ import { useNavigate } from "react-router-dom";
 import Carousel from "../components/carousel";
 import HomeCard from "../components/homeCard";
 import vector from "../assets/images/outdoor.jpg";
+import vid from "../assets/images/video.mp4";
+const { heroVideo } = ui_data;
 
 const Landing = () => {
+  const videoRef = useRef(null);
   const shadow =
     "https://res.cloudinary.com/dzquobiiy/image/upload/v1724160091/shadow_kbqtxb.svg";
   const { coat, heroBg } = images;
@@ -29,6 +33,15 @@ const Landing = () => {
   const login = () => {
     navigate("/login");
   };
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch((error) => {
+        console.log("Autoplay prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <div
       style={{
@@ -63,7 +76,7 @@ const Landing = () => {
             <div className="max-w-[304px] px-[20px] relative flex flex-col gap-[16px] lg:gap-[51px] w-full">
               <Quotebox text={quote1} />
               <div className="w-full max-w-[172px] flex mb-[27px] lg:mb-[98px] flex-col gap-[8px]">
-                <span className="py-[7px] px-[8px] w-full bg-[#fff] text-[#26A54D] font-[700] text-[10px] md:text-[14px]">
+                {/* <span className="py-[7px] px-[8px] w-full bg-[#fff] text-[#26A54D] font-[700] text-[10px] md:text-[14px]">
                   HON. OYETUNDE OJO
                 </span>
                 <div className="flex flex-col">
@@ -73,38 +86,35 @@ const Landing = () => {
                   <span className="font-[700] text-[10px] md:text-[14px] text-[#FAFAFA]">
                     Federal Housing Authority
                   </span>
-                </div>
+                </div> */}
               </div>
+              {/* <div className=""></div> */}
             </div>
-            <img
+            {/* <img
               className="lg:w-full w-[180px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
               src={img1}
               alt=""
-            />
+            /> */}
           </div>
           <div className=" flex gap-[13px] lg:gap-[22px] items-center lg:items-end justify-center col-span-1 w-full">
             {/* <img
-              className="flex lg:hidden absolute w-[50px] z-[20] top-[30px] left-[30px]"
-              src={coat}
-              alt=""
-            /> */}
-            <img
               className="lg:w-full w-[180px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
               src={img2}
               alt=""
-            />
+            /> */}
+            <div className=""></div>
             <div className="max-w-[304px] pt-[49px] lg:pt-[0px]  items-end px-[20px] relative flex flex-col gap-[16px] lg:gap-[33px] w-full">
               <div className="flex flex-col w-full items-end gap-[17px]">
-                <img
+                {/* <img
                   className="w-[46px] h-[46px] md:w-[74px] md:h-[74px]"
                   src={coat}
                   alt=""
-                />
+                /> */}
                 <Quotebox text={quote2} />
               </div>
               <div className="w-full flex mb-[20px] lg:mb-[60px] max-w-[184px]  flex-col gap-[8px]">
                 <div className="flex w-full px-[8px] py-[7px] bg-[#fff] flex-col">
-                  <span className="font-[400] text-[8px] text-center text-[#26A54D]">
+                  {/* <span className="font-[400] text-[8px] text-center text-[#26A54D]">
                     HIS EXCELLENCY
                   </span>
                   <div className="flex items-center gap-[3px]">
@@ -114,16 +124,16 @@ const Landing = () => {
                     <span className="text-[8px] text-[#26A54D] font-[400]">
                       GCFR
                     </span>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="flex w-full flex-col">
+                {/* <div className="flex w-full flex-col">
                   <span className="font-400] text-right text-[10px] md:text-[14px] text-[#FAFAFA]">
                     President, Commandeer-In-Chief of the Armed Forces
                   </span>
                   <span className="font-[700] text-right text-[10px] md:text-[14px] text-[#FAFAFA]">
                     Federal Republic of Nigeria
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -188,13 +198,25 @@ const Landing = () => {
             }}
             className="min-h-[700px] items-center relative flex mb-[120px] w-full"
           >
-            <img
+            {/* <img
               className="absolute   top-0 left-0 right-0 w-full h-full"
               src={shadow}
               alt=""
-            />
-            <div className="flex px-[20px]  flex-col relative h-full justify-center max-w-[600px] w-full gap-[80px]">
-              <div className="flex md:ms-[100px]  w-fit flex-col gap-[12px]">
+            /> */}
+            {/* <video
+              ref={videoRef}
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className=" w-full h-full border absolute top-0 left-0 right-0"
+              type="video/mp4"
+            >
+              <source src={vid} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video> */}
+            <div className="flex px-[20px] z-[99999] max-w-[1240px] mx-auto flex-col relative h-full w-full gap-[80px]">
+              <div className="flex md:ms-[100px] max-w-[600px]  w-fit flex-col gap-[12px]">
                 <span className="text-[30px] md:text-[40px] text-center md:text-start font-[700] text-[#FFFFFF]">
                   Collecting Data to Shape Housing Policies and Meet National
                   Needs
