@@ -7,10 +7,10 @@ const Carousel = () => {
  const img4 = "https://res.cloudinary.com/dzquobiiy/image/upload/v1724156254/Frame_1000002368_j8tdlu.svg";
   return (
     <div className="w-full flex overflow-hidden mx-[20px] max-w-[1240px] gap-[20px]">
-     <img src={img1} alt="" />
+     {/* <img src={img1} alt="" />
      <img src={img2} alt="" />
      <img src={img3} alt="" />
-     <img src={img4} alt="" />
+     <img src={img4} alt="" /> */}
     </div>
   )
 }

@@ -184,9 +184,9 @@ const Landing = () => {
               </span>
             </div>
             <div className="md:grid md:grid-cols-2 flex flex-col lg:grid-cols-3 gap-[20px] w-full">
-              <HomeCard cardData={card1} />
-              <HomeCard cardData={card2} />
-              <HomeCard cardData={card3} />
+              <HomeCard cardData={card1} index={1}  />
+              <HomeCard cardData={card2} index={2} />
+              <HomeCard cardData={card3} index={3} />
             </div>
           </div>
           <div

@@ -86,12 +86,9 @@ export const stale_form_data = {
 export const ui_data = {
   heroVideo:
     "https://res.cloudinary.com/dzquobiiy/video/upload/v1723102731/fha_hero_section_video_znuocl.mp4",
-  cardImage1:
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1724244611/howitworks1_fuo2q9.svg",
-  cardImage2:
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1724244611/howitworks2_k4ora6.svg",
-  cardImage3:
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1724244614/howitworks3_mqhswq.svg",
+  cardImage1: require("../assets/images/frame1.svg"),
+  cardImage2: require("../assets/images/frame2.svg"),
+  cardImage3: require("../assets/images/frame3.svg"),
 };
 const { cardImage1, cardImage2, cardImage3 } = ui_data;
 export const application_stale_data = {

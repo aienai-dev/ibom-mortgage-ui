@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoChevronDownCircleSharp } from "react-icons/io5";
 
 const Accordion = ({ data }) => {
   const plus =
@@ -21,7 +22,12 @@ const Accordion = ({ data }) => {
             <span className="font-[600] text-[18px] text-[#030812]">
               {item.question}
             </span>
-            <img src={activeIndex === index ? minus : plus} alt="" />
+
+            <IoChevronDownCircleSharp
+              className={`w-[24px] h-[24px] transition-all ease-in duration-200 ${
+                activeIndex === index ? "rotate-180" : ""
+              }`}
+            />
           </div>
           <div
             className={`w-full pt-[8px] pb-[32px] ${

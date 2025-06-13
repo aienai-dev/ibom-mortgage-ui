@@ -3,6 +3,8 @@ import logo from "../assets/images/logo.svg";
 import { useNavigate } from "react-router-dom";
 import downArrow from "../assets/icons/dropdown-arrow.svg";
 import { FaUser } from "react-icons/fa";
+import { CiMenuFries } from "react-icons/ci";
+
 const Navbar = ({ navItems, action, actionName, isEmpty }) => {
   const user = localStorage.user ? JSON.parse(localStorage.user) : {};
   const compliance = localStorage.compliance
@@ -102,11 +104,9 @@ const Navbar = ({ navItems, action, actionName, isEmpty }) => {
               </div>
             )}
             {navItems && (
-              <img
+              <CiMenuFries
                 onClick={toggleDropdown}
-                className="flex lg:hidden cursor-pointer ms-[10px]"
-                src={navIcon}
-                alt=""
+                className="flex lg:hidden text-[#fff] text-[25px] cursor-pointer ms-[10px]"
               />
             )}
           </div>
