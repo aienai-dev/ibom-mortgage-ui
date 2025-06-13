@@ -11,9 +11,9 @@ import {
   application_stale_data,
   ui_data,
 } from "../constants/static";
-import img1 from "../assets/images/Yetunde.svg";
+import img1 from "../assets/images/mg1.jpg";
 // img2: "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102734/Tinubu_d8zuhq.svg",
-import img2 from "../assets/images/Tinubu.svg";
+import img2 from "../assets/images/mg2.png";
 import { useNavigate } from "react-router-dom";
 import Carousel from "../components/carousel";
 import HomeCard from "../components/homeCard";
@@ -70,7 +70,7 @@ const Landing = () => {
             padding: "0px 20px",
             justifyContent: "center",
           }}
-          className="lg:grid-cols-2  flex lg:flex-row flex-col-reverse "
+          className="lg:grid-cols-2 mt-[100px]  flex gap-[40px] top-[40px] lg:flex-row flex-col-reverse "
         >
           <div className=" flex gap-[13px] items-center lg:gap-[22px] justify-center lg:items-end col-span-1 w-full">
             <div className="max-w-[304px] px-[20px] relative flex flex-col gap-[16px] lg:gap-[51px] w-full">
@@ -90,18 +90,18 @@ const Landing = () => {
               </div>
               {/* <div className=""></div> */}
             </div>
-            {/* <img
-              className="lg:w-full w-[180px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
+            <img
+              className="lg:w-full w-[180px] rounded-[40px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
               src={img1}
               alt=""
-            /> */}
+            />
           </div>
           <div className=" flex gap-[13px] lg:gap-[22px] items-center lg:items-end justify-center col-span-1 w-full">
-            {/* <img
-              className="lg:w-full w-[180px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
+            <img
+              className="lg:w-full rounded-[40px] w-[180px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
               src={img2}
               alt=""
-            /> */}
+            />
             <div className=""></div>
             <div className="max-w-[304px] pt-[49px] lg:pt-[0px]  items-end px-[20px] relative flex flex-col gap-[16px] lg:gap-[33px] w-full">
               <div className="flex flex-col w-full items-end gap-[17px]">
