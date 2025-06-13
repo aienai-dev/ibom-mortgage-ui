@@ -91,14 +91,14 @@ const Landing = () => {
               {/* <div className=""></div> */}
             </div>
             <img
-              className="lg:w-full w-[180px] rounded-[40px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
+              className="lg:w-full w-[180px] max-w-[250px] rounded-[40px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
               src={img1}
               alt=""
             />
           </div>
           <div className=" flex gap-[13px] lg:gap-[22px] items-center lg:items-end justify-center col-span-1 w-full">
             <img
-              className="lg:w-full rounded-[40px] w-[180px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
+              className="lg:w-full max-w-[250px] rounded-[40px] w-[180px] md:w-[250px] md:h-[400px] h-[294px] lg:h-full"
               src={img2}
               alt=""
             />
