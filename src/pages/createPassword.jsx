@@ -5,12 +5,12 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import logo from "../assets/images/logo.svg";
 
 const CreatePassword = () => {
   const loginBg =
     "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102733/login-bg_mjwhg1.svg";
-  const logo =
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102728/fha-logo-nav_v2xtz0.svg";
+
   const check =
     "https://res.cloudinary.com/dzquobiiy/image/upload/v1723229957/black-check_pj9sun.svg";
   const { token } = useParams();
@@ -91,7 +91,7 @@ const CreatePassword = () => {
   };
   return (
     <div className="w-full flex flex-col items-center justify-center py-[80px] px-[16px] min-h-screen h-full">
-      <img className="w-[150px]" src={logo} alt="" />
+      <img className="w-[150px] h-[100px] border" src={logo} alt="" />
       <div
         className="flex w-full  justify-center items-center"
         style={{
@@ -131,24 +131,61 @@ const CreatePassword = () => {
               />
             </div>
             <div className="w-full justify-center items-center flex flex-col gap-[50px]">
-            <div className="flex max-w-[378px] w-full flex-col gap-[4px]">
-              <div className={`flex items-center gap-[5px] ${passwordConditions.length ? 'opacity-100' : 'opacity-50'}`}><img src={check} alt="" /><span className="font-[400] text-[12px] text-[#030812]">Password must be at least 8 characters long</span></div>
-              <div className={`flex items-center gap-[5px] ${passwordConditions.uppercase ? 'opacity-100' : 'opacity-50'}`}><img src={check} alt="" /><span className="font-[400] text-[12px] text-[#030812]">Must contain at least one uppercase character</span></div>
-              <div className={`flex items-center gap-[5px] ${passwordConditions.specialChar ? 'opacity-100' : 'opacity-50'}`}><img src={check} alt="" /><span className="font-[400] text-[12px] text-[#030812]">Must contain at least one special character</span></div>
-              <div className={`flex items-center gap-[5px] ${passwordConditions.lowercase ? 'opacity-100' : 'opacity-50'}`}><img src={check} alt="" /><span className="font-[400] text-[12px] text-[#030812]">Must contain at least one lowecase character</span></div>
+              <div className="flex max-w-[378px] w-full flex-col gap-[4px]">
+                <div
+                  className={`flex items-center gap-[5px] ${
+                    passwordConditions.length ? "opacity-100" : "opacity-50"
+                  }`}
+                >
+                  <img src={check} alt="" />
+                  <span className="font-[400] text-[12px] text-[#030812]">
+                    Password must be at least 8 characters long
+                  </span>
+                </div>
+                <div
+                  className={`flex items-center gap-[5px] ${
+                    passwordConditions.uppercase ? "opacity-100" : "opacity-50"
+                  }`}
+                >
+                  <img src={check} alt="" />
+                  <span className="font-[400] text-[12px] text-[#030812]">
+                    Must contain at least one uppercase character
+                  </span>
+                </div>
+                <div
+                  className={`flex items-center gap-[5px] ${
+                    passwordConditions.specialChar
+                      ? "opacity-100"
+                      : "opacity-50"
+                  }`}
+                >
+                  <img src={check} alt="" />
+                  <span className="font-[400] text-[12px] text-[#030812]">
+                    Must contain at least one special character
+                  </span>
+                </div>
+                <div
+                  className={`flex items-center gap-[5px] ${
+                    passwordConditions.lowercase ? "opacity-100" : "opacity-50"
+                  }`}
+                >
+                  <img src={check} alt="" />
+                  <span className="font-[400] text-[12px] text-[#030812]">
+                    Must contain at least one lowecase character
+                  </span>
+                </div>
+              </div>
+              <span
+                onClick={handleSubmit}
+                className="bg-[#3D454E] max-w-[378px] flex justify-center items-center cursor-pointer text-center font-[500] text-[14px] text-[#FAFAFA] w-full rounded-[8px] py-[16px] "
+              >
+                {loading ? (
+                  <Loader size={[20, 20]} color={"#fff"} />
+                ) : (
+                  "Create Password"
+                )}
+              </span>
             </div>
-            <span
-              onClick={handleSubmit}
-              className="bg-[#3D454E] max-w-[378px] flex justify-center items-center cursor-pointer text-center font-[500] text-[14px] text-[#FAFAFA] w-full rounded-[8px] py-[16px] "
-            >
-              {loading ? (
-                <Loader size={[20, 20]} color={"#fff"} />
-              ) : (
-                "Create Password"
-              )}
-            </span>
-            </div>
-            
           </div>
         </div>
       </div>
