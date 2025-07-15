@@ -2,8 +2,10 @@ import React from "react";
 import m1 from "../assets/images/frame1.svg";
 import m2 from "../assets/images/frame2.svg";
 import m3 from "../assets/images/frame3.svg";
+import { useNavigate } from "react-router-dom";
 
 const HomeCard = ({ cardData, index }) => {
+  const navigate = useNavigate();
   const getSource = () => {
     switch (index) {
       case 0:
@@ -17,7 +19,10 @@ const HomeCard = ({ cardData, index }) => {
     }
   };
   return (
-    <div className="flex w-full flex-col border items-center gap-[18px] md:gap-[44px] border-[#D5D5D540]">
+    <div
+      onClick={() => navigate("/interest-form")}
+      className="flex w-full flex-col border items-center gap-[18px] md:gap-[44px] border-[#D5D5D540]"
+    >
       <img className="w-[70%] md:w-full" src={getSource()} alt="" />
       <div className="flex w-full md:ps-[24px] items-center md:items-start flex-col gap-[16px[">
         <div className="flex gap-[10px] items-center">

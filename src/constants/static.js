@@ -129,7 +129,7 @@ export const application_stale_data = {
   ],
   card1: {
     image: cardImage1,
-    head: "Express Yout Interest",
+    head: "Express Your Interest",
     body: "Fill our online application form to start your journey to home ownership.",
   },
   card2: {
