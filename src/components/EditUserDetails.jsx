@@ -38,7 +38,8 @@ const EditUserDetails = () => {
     street: complianceData?.personal_details.address.street,
     //  },
     // home_address: {
-    state_of_origin: complianceData?.personal_details.home_address.state_of_origin,
+    state_of_origin:
+      complianceData?.personal_details.home_address.state_of_origin,
     lga: complianceData?.personal_details.home_address.lga,
     //  },
     // user_identity: {
@@ -174,7 +175,8 @@ const EditUserDetails = () => {
     setLoading(true);
     try {
       const res = await axios.put(
-        process.env.REACT_APP_BASEURL + `/users/${user._id}/compliance/${complianceData._id}`,
+        "https://ibom-mortgage-api.fly.dev" +
+          `/users/${user._id}/compliance/${complianceData._id}`,
         {
           personal_details: {
             date_of_birth: form1.date_of_birth.toLowerCase(),
@@ -219,7 +221,7 @@ const EditUserDetails = () => {
         },
         { headers: { Authorization: "Bearer " + localStorage.access_token } },
         toast.success("Profile successfuly updated"),
-        setLoading(false),
+        setLoading(false)
       );
 
       // uploadDocs(res?.data?.data?.compliance?._id);
@@ -239,11 +241,10 @@ const EditUserDetails = () => {
       SetActiveTab("Housing Preferences");
     } else if (activeTab === "Housing Preferences") {
       SetActiveTab("Affordability Profiling");
-    }
-    else SetActiveTab('Affordability Profiling')
+    } else SetActiveTab("Affordability Profiling");
   };
   const previousStep = () => {
-    if (activeTab === 'Affordability Profiling') {
+    if (activeTab === "Affordability Profiling") {
       SetActiveTab("Housing Preferences");
     } else if (activeTab === "Housing Preferences") {
       SetActiveTab("Personal Details");
@@ -287,7 +288,6 @@ const EditUserDetails = () => {
               </div> */}
               <ApplicationForm1
                 form1={form1}
-
                 handleChange={handleChange}
                 formErrors={formErrors}
                 FileUpload={FileUpload}

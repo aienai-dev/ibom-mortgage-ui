@@ -125,7 +125,7 @@ const InterestForm = () => {
       setLoading(true);
 
       axios
-        .post(process.env.REACT_APP_BASEURL + "/auth/register", {
+        .post("https://ibom-mortgage-api.fly.dev" + "/auth/register", {
           user: {
             ...formData,
             phone_number: countryCode + formData.phone_number,

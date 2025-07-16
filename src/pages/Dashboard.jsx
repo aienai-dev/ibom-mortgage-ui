@@ -185,12 +185,12 @@ const Dashboard = () => {
       formData1.append("image", identity);
       formData2.append("image", income);
       await axios.post(
-        process.env.REACT_APP_BASEURL + `/users/${id}/identity`,
+        "https://ibom-mortgage-api.fly.dev" + +`/users/${id}/identity`,
         formData1,
         { headers: { Authorization: "Bearer " + localStorage.access_token } }
       );
       await axios.post(
-        process.env.REACT_APP_BASEURL + `/users/${id}/identity`,
+        "https://ibom-mortgage-api.fly.dev" + +`/users/${id}/identity`,
         formData2,
         { headers: { Authorization: "Bearer " + localStorage.access_token } }
       );
@@ -210,9 +210,12 @@ const Dashboard = () => {
   const getCompliance = () => {
     setFormLoading(true);
     axios
-      .get(process.env.REACT_APP_BASEURL + `/users/${user._id}/compliance`, {
-        headers: { Authorization: `Bearer ${localStorage.access_token}` },
-      })
+      .get(
+        "https://ibom-mortgage-api.fly.dev" + `/users/${user._id}/compliance`,
+        {
+          headers: { Authorization: `Bearer ${localStorage.access_token}` },
+        }
+      )
       .then((res) => {
         setFormLoading(false);
         setActiveCompliance(true);
@@ -258,7 +261,7 @@ const Dashboard = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        process.env.REACT_APP_BASEURL + `/users/${user._id}/compliance`,
+        "https://ibom-mortgage-api.fly.dev" + `/users/${user._id}/compliance`,
         {
           personal_details: {
             date_of_birth: form1.date_of_birth.toLowerCase(),

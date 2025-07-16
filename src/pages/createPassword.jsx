@@ -72,7 +72,7 @@ const CreatePassword = () => {
     } else {
       setLoading(true);
       axios
-        .post(process.env.REACT_APP_BASEURL + "/auth/create-password", {
+        .post("https://ibom-mortgage-api.fly.dev" + "/auth/create-password", {
           auth: {
             ...formData,
             reg_token: token,
