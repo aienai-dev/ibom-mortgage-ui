@@ -1009,7 +1009,18 @@ export const monthly_income = [
 ];
 
 export const purposeOfHousing = ["Residential", "Investment"];
-export const numberOfBedrooms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+export const numberOfBedrooms = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+];
 export const typeOfHousing = [
   "Apartment",
   "Detached House",

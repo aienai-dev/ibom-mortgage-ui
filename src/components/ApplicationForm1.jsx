@@ -31,7 +31,7 @@ const ApplicationForm1 = ({
   const states = location.states();
 
   const getCities = (state) => {
-    console.log(state);
+    // console.log(state);
     return location.lgas(state);
   };
 

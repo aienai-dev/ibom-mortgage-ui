@@ -42,9 +42,9 @@ const ApplicationForm2 = ({
       nextStep(3);
     }
   };
-  const previous = () =>{
+  const previous = () => {
     previousStep(1);
-  }
+  };
 
   return (
     <div className="flex flex-col w-full gap-[56px] items-center justify-center">
@@ -111,9 +111,10 @@ const ApplicationForm2 = ({
             options={numberOfBedrooms}
             value={form2?.no_of_bedrooms}
             name="no_of_bedrooms"
-            onOptionSelect={(value, name) =>
-              handleDropdownSelect(value, name, "form2")
-            }
+            onOptionSelect={(value, name) => {
+              console.log(value, name);
+              handleDropdownSelect(value, name, "form2");
+            }}
           />
         </div>
         <div className=" sm:grid w-full flex flex-col sm:grid-cols-2 items-center gap-[20px]">
@@ -125,7 +126,9 @@ const ApplicationForm2 = ({
             isRequired={true}
             value={form2?.housing_purpose}
             options={purposeOfHousing}
-            onOptionSelect={(value, name) => handleDropdownSelect(value, name, 'form2')}
+            onOptionSelect={(value, name) =>
+              handleDropdownSelect(value, name, "form2")
+            }
           />
           <Dropdown
             label="Preferred Budget"
@@ -135,7 +138,9 @@ const ApplicationForm2 = ({
             isRequired={true}
             name="budget"
             value={form2?.budget}
-            onOptionSelect={(value, name) => handleDropdownSelect(value, name, 'form2')}
+            onOptionSelect={(value, name) =>
+              handleDropdownSelect(value, name, "form2")
+            }
           />
         </div>
         <TextArea
@@ -146,7 +151,6 @@ const ApplicationForm2 = ({
           value={form2?.customer_preference_feedback}
           handleChange={(e) => handleChange(e, "form2")}
           placeholder="Whats your preference?"
-          
         />
       </div>
 
