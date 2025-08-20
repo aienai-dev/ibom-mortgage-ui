@@ -6,7 +6,7 @@ export const countries = [
             "native": {
                 "nld": {
                     "official": "Aruba",
-                    "common": "Aruba"
+                    "cofmmon": "Aruba"
                 },
                 "pap": {
                     "official": "Aruba",

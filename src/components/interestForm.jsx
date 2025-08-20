@@ -9,9 +9,6 @@ import img from "../assets/images/success.png";
 import infoCircle from "../assets/icons/info-circle.svg";
 
 const InterestForm = () => {
-  const loginBg =
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102733/login-bg_mjwhg1.svg";
-  // const [selectedOption, setOption] = useState("");
   const { background, lagosOutline, formBackground } = stale_form_data;
   const [loading, setLoading] = useState(false);
 
@@ -154,29 +151,10 @@ const InterestForm = () => {
     }
   };
   return (
-    <div
-      style={{
-        backgroundImage: `url(${loginBg})`,
-        backgroundPosition: "bottom",
-        backgroundSize: "auto",
-        backgroundRepeat: "no-repeat",
-        width: "100%",
-      }}
-      className="w-full px-[20px] flex items-center pt-[100px] pb-[130px] justify-center"
-    >
+    <div className="w-full px-[20px] flex items-center pt-[100px] pb-[130px] justify-center">
       <div className="max-w-[820px] rounded-[32px] sm:border w-full">
         {!accountCreated ? (
-          <div
-            style={{
-              backgroundImage: `url(${formBackground})`,
-              backgroundPosition: "center",
-              backgroundSize: "auto",
-              backgroundRepeat: "no-repeat",
-              width: "100%",
-              height: "100%",
-            }}
-            className="w-full bg-[#fff] rounded-[32px] flex flex-col gap-[24px] items-center sm:p-[40px] justify-center"
-          >
+          <div className="w-full bg-[#fff] rounded-[32px] flex flex-col gap-[24px] items-center sm:p-[40px] justify-center">
             <div className="w-full flex flex-col gap-[32px] max-w-[760px]">
               <div className="flex flex-col">
                 <span className="font-[600] text-center md:text-left text-[24px] text-[#101828]">

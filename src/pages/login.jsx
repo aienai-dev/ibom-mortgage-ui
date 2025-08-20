@@ -4,12 +4,9 @@ import Loader from "../components/loader";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.svg";
 
 const Login = () => {
-  const loginBg =
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102733/login-bg_mjwhg1.svg";
-  const logo =
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102728/fha-logo-nav_v2xtz0.svg";
   // const { token } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -73,29 +70,22 @@ const Login = () => {
     // }
   };
   return (
-    <div className="w-full flex flex-col items-center justify-center py-[80px] px-[16px] h-screen min-h-[700px]">
-      <img className="w-[150px]" src={logo} alt="" />
-      <div
-        className="flex w-full  justify-center items-center"
-        style={{
-          backgroundImage: `url(${loginBg})`,
-          backgroundPosition: "center",
-          backgroundSize: "auto",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+    <div className="min-h-screen flex justify-center auth-layout  w-full sm:pt-[91px] px-[16px] ">
+      {" "}
+      <div className="flex flex-col w-full sm:items-center gap-[13px]">
+        <img src={logo} alt={""} width={100} height={79} />
         <div className="max-w-[505px] w-full pt-[40px] pb-[60px] flex flex-col gap-[40px] rounded-[8px] border-[#D5D5D540] justify-center items-center sm:border bg-[#fff]">
-          <div className="max-w-[378px] flex-col flex gap-[5px] w-full">
-            <span className="font-[600] text-center text-[24px] text-[#101828]">
-              Login to your Account
+          <div className="flex flex-col sm:items-center gap-[8px]">
+            <span className="text-[28px] text-[#323B48] font-[600] sm:text-center title-font">
+              Welcome back
             </span>
-            <span className="font-[400] text-center text-[14px] text-[#475467]">
-              Please login with your credentials
+            <span className="text-[15px] text-[#414F63] font-[500] sm:text-center title-font">
+              Enter your email address and password to log in.
             </span>
           </div>
 
           <div className="w-full flex flex-col justify-center items-center">
-            <div className="w-full max-w-[378px] justify-center items-center flex flex-col gap-[32px]">
+            <div className="w-full max-w-[378px] justify-center items-center flex flex-col gap-[12px]">
               <Input
                 label="Email"
                 name="email"

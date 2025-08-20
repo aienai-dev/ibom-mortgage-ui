@@ -16,19 +16,19 @@ export const navItems = [
 
 export const faqData = [
   {
-    question: "What is FHA Renewed Hope Housing Project?",
+    question: "What is Ibom Mortgage Bank Renewed Hope Housing Project?",
     answer:
       "This is the Federal Government initiative to address housing deficit and meet housing needs of Nigerian by making available affordable houses in every state of the Federation for Nigerians.",
   },
   {
-    question: "How does the FHA Renewed Hope Estates portal work?",
+    question: "How does the Ibom Mortgage Bank Renewed Hope Estates portal work?",
     answer:
       "Federal Housing Authority is making available affordable homes of different hose type in all states of the Federation for interested Nigerian to apply and when you meet the required terms and conditions you will be allocated a home.",
   },
   {
     question: "How do I subscribe for this housing project?",
     answer:
-      "Visit FHA office or website to apply and complete an application form and submit for processing.",
+      "Visit Ibom Mortgage Bank office or website to apply and complete an application form and submit for processing.",
   },
   {
     question: "How do I know if my application is successful?",
@@ -38,7 +38,7 @@ export const faqData = [
   {
     question: "Does it cost money to apply for the housing project?",
     answer:
-      "Every applicant shall pay a non-refundable application fee of N10,000.00 (Naira) only through REMITA platform; print out your receipt and submit same to FHA office or upload same.",
+      "Every applicant shall pay a non-refundable application fee of N20,000.00 (Naira) only through REMITA platform; print out your receipt and submit same to Ibom Mortgage Bank office or upload same.",
   },
   {
     question: "Is the project available in all states of the Federation?",
@@ -81,11 +81,11 @@ export const stale_form_data = {
   infoCircle:
     "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102505/info-circle_s07btx.svg",
   formBackground:
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102728/fha-logo-background_kre9yx.svg",
+    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102728/Ibom Mortgage Bank-logo-background_kre9yx.svg",
 };
 export const ui_data = {
   heroVideo:
-    "https://res.cloudinary.com/dzquobiiy/video/upload/v1723102731/fha_hero_section_video_znuocl.mp4",
+    "https://res.cloudinary.com/dzquobiiy/video/upload/v1723102731/Ibom Mortgage Bank_hero_section_video_znuocl.mp4",
   cardImage1: require("../assets/images/frame1.svg"),
   cardImage2: require("../assets/images/frame2.svg"),
   cardImage3: require("../assets/images/frame3.svg"),
