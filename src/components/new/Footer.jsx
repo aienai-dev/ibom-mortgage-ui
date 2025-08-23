@@ -1,8 +1,14 @@
-import { FaEnvelope, FaFacebookF, FaLinkedinIn, FaPhone, FaTwitter } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaFacebookF,
+  FaLinkedinIn,
+  FaPhone,
+  FaTwitter,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => (
-  <footer className="bg-dark-bg text-gray-400 py-16 px-4 md:px-16">
+  <footer id="footer" className="bg-dark-bg text-gray-400 py-16 px-4 md:px-16">
     <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
         <h3 className="text-2xl font-bold text-light-text mb-4">
@@ -26,7 +32,7 @@ const Footer = () => (
             <FaFacebookF className="text-xl" />
           </a>
           <a
-            href="#"
+            href="https://www.linkedin.com/company/akwa-savings-and-loans-ltd/"
             className="text-gray-400 hover:text-primary-orange transition-colors"
           >
             <FaLinkedinIn className="text-xl" />
@@ -38,7 +44,7 @@ const Footer = () => (
         <ul className="text-sm space-y-2">
           <li>
             <Link
-              to="/about"
+              to="#about"
               className="hover:text-primary-orange transition-colors"
             >
               About Us
@@ -46,23 +52,16 @@ const Footer = () => (
           </li>
           <li>
             <Link
-              to="/services"
+              to="#services"
               className="hover:text-primary-orange transition-colors"
             >
-              Our Services
+              How It Works
             </Link>
           </li>
+
           <li>
             <Link
-              to="/properties"
-              className="hover:text-primary-orange transition-colors"
-            >
-              Properties
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
+              to="#footer"
               className="hover:text-primary-orange transition-colors"
             >
               Contact
@@ -74,11 +73,11 @@ const Footer = () => (
         <h4 className="text-xl font-bold text-light-text mb-4">Contact</h4>
         <div className="flex items-center gap-3 text-sm mb-2">
           <FaPhone className="text-primary-orange" />
-          <span>+234 801 234 5678</span>
+          <span>+234 908 897 8002</span>
         </div>
         <div className="flex items-center gap-3 text-sm">
           <FaEnvelope className="text-primary-orange" />
-          <span>info@ibommortgage.com</span>
+          <span>info@ibommortgagebank.com</span>
         </div>
       </div>
     </div>

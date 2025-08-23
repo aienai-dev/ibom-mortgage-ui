@@ -29,7 +29,7 @@ const Featured = () => {
   const { card1, card2, card3 } = application_stale_data;
   return (
     <div
-      id="howItWorks"
+      id="how-it-works"
       className=" bg-[#fff]  py-[100px] px-[40px] w-full gap-[80px] flex flex-col"
     >
       <div className="flex flex-col lg:flex-row gap-[20px] lg:gap-[0px] w-full items-center justify-between">

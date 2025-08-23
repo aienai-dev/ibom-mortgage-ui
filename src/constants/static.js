@@ -38,7 +38,7 @@ export const faqData = [
   {
     question: "Does it cost money to apply for the housing project?",
     answer:
-      "Every applicant shall pay a non-refundable application fee of N20,000.00 (Naira) only through REMITA platform; print out your receipt and submit same to Ibom Mortgage Bank office or upload same.",
+      "Every applicant shall pay a non-refundable application fee of N20,000.00 (Naira); Once your payment is confirmed you will receive a receipt for your payment.",
   },
   {
     question: "Is the project available in all states of the Federation?",

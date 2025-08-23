@@ -1,7 +1,7 @@
 import { FaHandshake, FaHome, FaUsers, FaMoneyBill } from "react-icons/fa";
 
 const AboutSection = () => (
-  <section className="bg-white py-20 px-4 md:px-16">
+  <section id="about" className="bg-white py-20 px-4 md:px-16">
     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div className="text-gray-800">
         <h2 className="text-4xl font-bold font-sans">
