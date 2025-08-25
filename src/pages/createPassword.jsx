@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PasswordInput } from "../components/input";
 import Loader from "../components/loader";
 import { toast } from "react-toastify";
@@ -92,6 +92,9 @@ const CreatePassword = () => {
         });
     }
   };
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   return (
     <div className="bg-dark-bg min-h-screen">
       <Nav />

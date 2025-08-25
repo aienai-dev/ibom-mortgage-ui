@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input, { PasswordInput } from "../components/input";
 import Loader from "../components/loader";
 import { toast } from "react-toastify";
@@ -70,6 +70,9 @@ const Login = () => {
       });
     // }
   };
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   return (
     <div className="min-h-screen flex justify-center auth-layout  w-full sm:pt-[91px] px-[16px] ">
       {" "}
