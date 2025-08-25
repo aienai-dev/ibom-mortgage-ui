@@ -3,8 +3,8 @@ import axios from "axios";
 // const { decrypt } = useEncrypt();
 
 const axiosInstance = axios.create({
-  // baseURL: "https://ibom-mortgage-api.fly.dev",
-  baseURL: "http://localhost:3010",
+  baseURL: "https://ibom-mortgage-api.fly.dev",
+  // baseURL: "http://localhost:3010",
   timeout: 10000,
   headers: {},
 });
