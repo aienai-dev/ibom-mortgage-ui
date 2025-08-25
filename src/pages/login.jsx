@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
+import axiosInstance from "../api/axios";
 
 const Login = () => {
   // const { token } = useParams();
@@ -47,8 +48,8 @@ const Login = () => {
     // } else {
     // console.log(formData)
     setLoading(true);
-    axios
-      .post("https://ibom-mortgage-api.fly.dev" + "/auth/login", {
+    axiosInstance
+      .post("/auth/login", {
         ...formData,
       })
       .then((res) => {

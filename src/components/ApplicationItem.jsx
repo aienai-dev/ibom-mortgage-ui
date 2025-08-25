@@ -12,27 +12,27 @@ const ApplicationItem = () => {
       <div className="flex w-full flex-col gap-[8px]">
         <div className="flex items-center gap-[12px]">
           <span className="font-[600] text-[16px] text-[#338330]">
-            Application #IBM0102929
+            Application ({complianceData?._id})
           </span>
           <span
             className={`py-[4px] px-[12px] whitespace-nowrap font-[400] text-[12px] rounded-[22px] ${
-              complianceData.status === "pending-review"
+              complianceData?.status === "pending-review"
                 ? "text-[#FFA500] bg-[#ffa6002f]"
-                : complianceData.status === "rejected"
+                : complianceData?.status === "rejected"
                 ? "text-[#FF3D00] bg-[#ff3c0034]"
                 : "text-[#26A54D] bg-[#26a54c34]"
             }`}
           >
-            {complianceData.status === "pending-review" && "Pending Approval"}
-            {complianceData.status === "rejected" && "Rejected"}
-            {complianceData.status === "approved" && "Approved"}
+            {complianceData?.status === "pending-review" && "Pending Approval"}
+            {complianceData?.status === "rejected" && "Rejected"}
+            {complianceData?.status === "approved" && "Approved"}
           </span>
         </div>
         <span className="font-[400] max-w-[500px] text-[14px] text-[#3D454E]">
-          {complianceData.status === "pending-review" &&
+          {complianceData?.status === "pending-review" &&
             "Your application has been successfully submitted and is currently being reviewed. You will be notified as once complete and you can proceed to the nest stage."}
-          {/* {complianceData.status ==='approved' && 'Your application has been successfully submitted and is currently being reviewed. You will be notified as once complete and you can proceed to the nest stage.'}
-          {complianceData.status ==='rejected' && 'Your application has been successfully submitted and is currently being reviewed. You will be notified as once complete and you can proceed to the nest stage.'} */}
+          {/* {complianceData?.status ==='approved' && 'Your application has been successfully submitted and is currently being reviewed. You will be notified as once complete and you can proceed to the nest stage.'}
+          {complianceData?.status ==='rejected' && 'Your application has been successfully submitted and is currently being reviewed. You will be notified as once complete and you can proceed to the nest stage.'} */}
         </span>
       </div>
     </div>

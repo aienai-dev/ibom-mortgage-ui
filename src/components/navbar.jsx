@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import downArrow from "../assets/icons/dropdown-arrow.svg";
 import { FaUser } from "react-icons/fa";
 import { CiMenuFries } from "react-icons/ci";
+import { IoChevronDown } from "react-icons/io5";
 
 const Navbar = ({ navItems, action, actionName, isEmpty }) => {
   const user = localStorage.user ? JSON.parse(localStorage.user) : {};
@@ -65,79 +66,45 @@ const Navbar = ({ navItems, action, actionName, isEmpty }) => {
           ref={dropdownRef}
           className="flex w-full items-center relative justify-end gap-[34px]"
         >
-          {navItems && !isEmpty && (
-            <div className="lg:flex hidden items-center gap-[34px]">
-              {navItems.map((item, index) => (
-                <a
-                  className="font-[500] whitespace-nowrap text-[16px] text-[#FAFAFA]"
-                  href={`${item.id}`}
-                  key={index}
-                >
-                  {item.name}
-                </a>
-              ))}
+          <div
+            onClick={() => setIsDropdownOpen(true)}
+            className="flex items-center cursor-pointer"
+          >
+            <span className="w-[45px] mr-2 h-[45px] bg-[#ffffff43] flex items-center justify-center text-white rounded-full">
+              <FaUser />
+            </span>
+            <div className="flex flex-col text-[#fff] max-w-[150px] overflow-hidden ">
+              <span className="whitespace-nowrap truncate ">
+                {user?.first_name} {user?.last_name}
+              </span>
+              <span className="text-[12px] whitespace-nowrap truncate">
+                {user?.email}
+              </span>
             </div>
-          )}
-          <div className="flex items-center">
-            {!user._id && !isEmpty && (
-              <div className="lg:flex hidden items-center gap-[18px]">
-                <span
-                  onClick={login}
-                  className="border-[#E6E6E6] cursor-pointer border rounded-[8px] px-[32px] py-[16px] text-[#FFFFFF] whitespace-nowrap font-[500] text-[16px]"
-                >
-                  Login
-                </span>
-                <span
-                  onClick={expressInterest}
-                  className="bg-[#fff] rounded-[8px] px-[32px] py-[16px] cursor-pointer text-[#3D454E] whitespace-nowrap font-[500] text-[16px]"
-                >
-                  Get Started
-                </span>
-              </div>
-            )}
-            {user._id && !isEmpty && (
-              <div className="flex items-center gap-[8px]">
-                {/* <div className="w-[25px] h-[25px] bg-[#fff] rounded-[25px]"></div> */}
-                <span className="font-[500] text-[12px] md:text-[16px] text-[#FAFAFA]">
-                  Hello, <span className="truncate">{user.first_name}</span>
-                </span>
-              </div>
-            )}
-            {navItems && (
-              <CiMenuFries
-                onClick={toggleDropdown}
-                className="flex lg:hidden text-[#fff] text-[25px] cursor-pointer ms-[10px]"
-              />
-            )}
+            <IoChevronDown className="text-[#fff]" />
           </div>
           {isDropdownOpen && (
-            <div className="flex lg:hidden absolute top-[90px] shadow-md py-[15px] gap-[15px] right-0 bg-[#fff] z-[5] rounded-[8px] flex-col ">
-              {navItems.map((item, index) => (
-                <a
-                  onClick={toggleDropdown}
-                  className="font-[500] whitespace-nowrap hover:bg-slate-100 px-[20px] text-[16px] text-[#6e6b6b]"
-                  href={`${item.id}`}
-                  key={index}
-                >
-                  {item.name}
-                </a>
-              ))}
-              {!user._id && !isEmpty && (
-                <div className="flex flex-col px-[20px] gap-[15px]">
-                  <span
-                    onClick={login}
-                    className="border-[#E6E6E6] cursor-pointer rounded-[8px] text-[#3D454E] whitespace-nowrap font-[800] text-[16px]"
-                  >
-                    Login
-                  </span>
-                  <span
-                    onClick={expressInterest}
-                    className="rounded-[8px] cursor-pointer py-[8px] px-[20px] bg-slate-800  text-[#fff] whitespace-nowrap font-[800] text-[16px]"
-                  >
-                    Get Started
-                  </span>
-                </div>
-              )}
+            <div className="flex flex-col items-center bg-[#fff] shadow-sm absolute top-[100px] p-[20px] border border-e-gray-500 rounded-md w-[300px]">
+              <span className="w-[45px] mr-2 h-[45px] bg-[#00000072] flex items-center justify-center text-white rounded-full">
+                <FaUser />
+              </span>
+              <div className="flex flex-col items-center overflow-hidden ">
+                <span className="whitespace-nowrap truncate text-center ">
+                  {user?.first_name} {user?.last_name}
+                </span>
+                <span className="text-[12px] whitespace-nowrap truncate">
+                  {user?.email}, {user?.phone_number}
+                </span>
+              </div>
+              <span
+                onClick={() => {
+                  localStorage.clear();
+                  navigate("/");
+                }}
+                className="bg-[#000] cursor-pointer h-[42px] flex items-center justify-center w-full text-[#fff] mt-4"
+              >
+                Logout
+              </span>
             </div>
           )}
         </div>

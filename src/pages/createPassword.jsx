@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
 import Nav from "../components/new/Nav";
 import Footer from "../components/new/Footer";
+import axiosInstance from "../api/axios";
 
 const CreatePassword = () => {
   const loginBg =
@@ -73,8 +74,8 @@ const CreatePassword = () => {
       setFormError({ ...formError, ...formValidation() });
     } else {
       setLoading(true);
-      axios
-        .post("https://ibom-mortgage-api.fly.dev" + "/auth/create-password", {
+      axiosInstance
+        .post("/auth/create-password", {
           auth: {
             ...formData,
             reg_token: token,

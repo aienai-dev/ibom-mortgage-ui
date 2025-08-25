@@ -705,7 +705,7 @@ const ProgressBar = ({ currentStep, totalSteps }) => {
 };
 
 // Main Multi-Step Form Component
-const MultiStepForm = ({ onSubmit }) => {
+const MultiStepForm = ({ onSubmit, loadCompliance }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
@@ -896,9 +896,6 @@ const MultiStepForm = ({ onSubmit }) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    // } catch (err) {
-    //   //   throw err;
-    // }
   };
   const logout = () => {
     localStorage.clear();
@@ -957,10 +954,12 @@ const MultiStepForm = ({ onSubmit }) => {
         await uploadDocs(res?.data?.data?.compliance?._id);
         setLoading(false);
         showToast("Application submitted successfully", "success");
+        loadCompliance();
         onSubmit();
       } catch (err) {
         console.log(err);
         setLoading(false);
+        loadCompliance();
         showToast("Failed to submit application", "error");
       }
     }
