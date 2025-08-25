@@ -167,13 +167,13 @@ const Dashboard = () => {
             ) : (
               <>
                 {firstTimer ? (
-                  <div className="w-full  flex items-center p-[30px] bg-[#0000000a]">
+                  <div className="w-full  flex flex-wrap items-center p-[30px] bg-[#0000000a]">
                     <div className="flex flex-col items-center gap-[10px] min-w-[200px] w-fit h-fit ">
                       <span className="text-[16px] font-[700]">
                         Account Setup
                       </span>
                       <div className="flex justify-center items-center w-[70px] h-[70px] rounded-full border-4 border-r-orange-500 text-orange-600 font-bold">
-                        25%
+                        {hidePayment ? "50%" : "25%"}
                       </div>
                     </div>
                     {hidePayment ? (
