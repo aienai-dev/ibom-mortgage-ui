@@ -319,7 +319,7 @@ const PaymentFinalization = ({
                       Bank Name
                     </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm text-right font-medium text-gray-900">
-                      {account?.bankName}
+                      {"Ibom Mortgage Checkout"}
                     </td>
                   </tr>
                   <tr>
