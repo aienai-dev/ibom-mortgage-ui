@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../components/input";
 import Loader from "../components/loader";
 import { toast } from "react-toastify";
@@ -64,6 +64,10 @@ const ForgotPassword = () => {
       });
     // }
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    localStorage.clear();
+  }, []);
   return (
     <div className="w-full flex flex-col items-center justify-center py-[80px] px-[16px] h-screen min-h-[700px]">
       {!emailSent && <img className="w-[150px]" src={logo} alt="" />}
