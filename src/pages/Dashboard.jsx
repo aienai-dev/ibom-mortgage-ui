@@ -336,7 +336,7 @@ const PaymentFinalization = ({
                       Account Number
                     </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm text-right font-medium text-gray-900">
-                      {account?.accountNumber}
+                      {/* {account?.accountNumber} */}
                     </td>
                   </tr>
                 </>
