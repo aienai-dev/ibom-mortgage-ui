@@ -277,7 +277,7 @@ const PaymentFinalization = ({
         <p className="text-gray-600 text-[12px] mb-6">
           You are required to pay a non-refundable fee of NGN 20,000 to start
           this application. Please review the details below. If you've already
-          made the payment, upload your receipt to proceed.
+          made the payment, click the button to validate you payment.
         </p>
 
         <div className="border border-gray-200 rounded-lg overflow-hidden mb-6">
@@ -327,8 +327,7 @@ const PaymentFinalization = ({
                       Account Name
                     </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm text-right font-medium text-gray-900">
-                      {/* {account?.accountName} */}
-                      Ibom Mortgage Checkout
+                      {account?.accountName}
                     </td>
                   </tr>
                   <tr>
@@ -336,7 +335,7 @@ const PaymentFinalization = ({
                       Account Number
                     </td>
                     <td className="px-4 py-4 whitespace-nowrap text-sm text-right font-medium text-gray-900">
-                      {/* {account?.accountNumber} */}
+                      {account?.accountNumber}
                     </td>
                   </tr>
                 </>
