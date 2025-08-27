@@ -4,7 +4,6 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: "https://ibom-mortgage-api.fly.dev",
-  // baseURL: "http://localhost:3020",
   timeout: 10000,
   headers: {},
 });

@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { IoChevronDownCircleSharp } from "react-icons/io5";
 
 const Accordion = ({ data }) => {
-  const plus =
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102505/accordion-plus_zeymgo.svg";
-  const minus =
-    "https://res.cloudinary.com/dzquobiiy/image/upload/v1723102505/accordion-minus_i988j5.svg";
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleToggle = (index) => {
@@ -24,7 +20,7 @@ const Accordion = ({ data }) => {
             </span>
 
             <IoChevronDownCircleSharp
-              className={`w-[24px] h-[24px] transition-all ease-in duration-200 ${
+              className={`w-[24px] min-w-[24px] h-[24px] transition-all ease-in duration-200 ${
                 activeIndex === index ? "rotate-180" : ""
               }`}
             />

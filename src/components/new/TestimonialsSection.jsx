@@ -1,25 +1,6 @@
 import React from "react";
-import { FaQuoteRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import bg from "../../assets/images/outdoor.jpg";
-
-const testimonials = [
-  {
-    id: 1,
-    text: "Ibom Mortgage Bank made my dream of owning a home a reality. The process was seamless and the team was incredibly helpful.",
-    author: "Jane Doe",
-  },
-  {
-    id: 2,
-    text: "Their mortgage plans are flexible and tailored to my needs. I couldn't have asked for a better experience.",
-    author: "John Smith",
-  },
-  {
-    id: 3,
-    text: "The customer service is outstanding. They guided me through every step of the way with clear communication.",
-    author: "Maria Okon",
-  },
-];
 
 const TestimonialsSection = () => {
   const navigate = useNavigate();
@@ -44,7 +25,7 @@ const TestimonialsSection = () => {
         </span>
         <button
           onClick={() => navigate("/interest-form")}
-          className=" max-w-[250px] mt-[40px] flex justify-center items-center cursor-pointer w-full bg-[#FAFAFA] text-[#3D454E] text-[14px] font-[500] rounded-[8px] py-[12px] px-[32px] h-[56px]"
+          className=" max-w-[250px] mt-[40px] flex justify-center md:mx-0 mx-auto items-center cursor-pointer w-full bg-[#FAFAFA] text-[#3D454E] text-[14px] font-[500] rounded-[8px] py-[12px] px-[32px] h-[56px]"
         >
           Express Your Interest
         </button>

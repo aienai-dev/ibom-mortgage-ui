@@ -7,7 +7,7 @@ const Nav = () => (
       <Link to="/" className="text-2xl font-bold text-light-text font-serif">
         <img src={logo} alt="" className="h-[60px]" />
       </Link>
-      <div className="flex  items-center gap-2 text-light-text">
+      <div className="flex  items-center justify-end gap-2 sm:text-[16px] text-[12px] text-end flex-wrap text-light-text">
         <span>Already have an account?</span>
         <Link to="/login" className="text-primary-orange transition-colors">
           Sign In
