@@ -128,10 +128,13 @@ const InterestForm = () => {
         setAccountCreated(true);
       } catch (err) {
         console.log(err);
-        if(err.response.data.status === 405){
-          showToast(err.response.data.error, "error");
+        if (err?.response?.data?.status === 405) {
+          showToast(
+            err?.response?.data?.error || "Something went wrong",
+            "error"
+          );
           setLoading(false);
-          return
+          return;
         }
         setLoading(false);
         showToast("Something went wrong. Please try again later.", "error");

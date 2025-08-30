@@ -60,7 +60,8 @@ const Login = () => {
         toast.success("Login Successful");
       })
       .catch((err) => {
-        if (err.response.status === 401) {
+        console.log(err);
+        if (err?.response?.status === 401) {
           toast.error("Invalid Email or Password!");
           setLoading(false);
           return;
