@@ -6,6 +6,7 @@ import axios from "axios";
 // import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 import img from "../assets/images/success.png";
+import axiosInstance from "../api/axios";
 
 const ForgotPassword = () => {
   const loginBg =
@@ -40,34 +41,27 @@ const ForgotPassword = () => {
   //     error.confirm_password = "Password do not match*";
   //   return error;
   // };
-  const handleSubmit = () => {
-    // if (Object.keys(formValidation()).length > 0) {
-    //   setFormError({ ...formError, ...formValidation() });
-    // } else {
+  const handleSubmit = async () => {
     setLoading(true);
-    axios
-      .post("https://ibom-mortgage-api.fly.dev" + "/auth/forgot-password", {
+    try {
+      await axiosInstance.post("/auth/forgot-password", {
         auth: {
           ...formData,
-          // reg_token: token,
         },
-      })
-      .then((res) => {
-        setLoading(false);
-        // navigate("/home");
-        setEmailSent(true);
-        toast.success("Email Sent Successfully");
-      })
-      .catch((err) => {
-        setLoading(false);
-        toast.error("Something went wrong, Please try again!");
       });
-    // }
+      setLoading(false);
+      setEmailSent(true);
+      toast.success("Email Sent Successfully");
+    } catch (err) {
+      setLoading(false);
+      toast.error("Something went wrong, Please try again!");
+    }
   };
   useEffect(() => {
     window.scrollTo(0, 0);
     localStorage.clear();
   }, []);
+  
   return (
     <div className="w-full flex flex-col items-center justify-center py-[80px] px-[16px] h-screen min-h-[700px]">
       {!emailSent && <img className="w-[150px]" src={logo} alt="" />}

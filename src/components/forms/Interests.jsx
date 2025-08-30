@@ -4,6 +4,7 @@ import { AlertCircleIcon, CheckCircleIcon } from "../common/Icons";
 import { Input, PhoneInput, Dropdown } from "../common/Input";
 import Loader from "../common/Loader";
 import axiosInstance from "../../api/axios";
+import toast from "react-hot-toast";
 
 const InterestForm = () => {
   const [loading, setLoading] = useState(false);
@@ -125,16 +126,15 @@ const InterestForm = () => {
           },
         });
         setLoading(false);
-        showToast("Thank you for your interest", "success");
+        toast.success("Thank you for your interest", "success");
+
         setAccountCreated(true);
       } catch (err) {
-        console.log(err);
-        if (err?.response?.data?.status === 405) {
+        // console.log(err);
+        if (err?.status === 405) {
           console.log(err);
-          showToast(
-            err?.response?.data?.error || "Something went wrong",
-            "error"
-          );
+          toast.error(err?.response?.data?.error);
+
           setLoading(false);
           return;
         }

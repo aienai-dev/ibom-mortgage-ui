@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// The following components are assumed to be available in the project structure
-// Since the original code had these imports, we will keep them as they are
-// If the user's project does not have these files, the error will persist
 import Navbar from "../components/navbar";
 import ApplicationItem from "../components/ApplicationItem";
 import ApplicationForm from "../components/forms/ApplicationForm";

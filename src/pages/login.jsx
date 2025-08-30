@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Input, { PasswordInput } from "../components/input";
 import Loader from "../components/loader";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
@@ -42,34 +42,31 @@ const Login = () => {
   const register = () => {
     navigate("/interest-form");
   };
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // if (Object.keys(formValidation()).length > 0) {
     //   setFormError({ ...formError, ...formValidation() });
     // } else {
     // console.log(formData)
     setLoading(true);
-    axiosInstance
-      .post("/auth/login", {
+    try {
+      const res = await axiosInstance.post("/auth/login", {
         ...formData,
-      })
-      .then((res) => {
-        setLoading(false);
-        localStorage.setItem("access_token", res.data.data.access_token);
-        localStorage.setItem("user", JSON.stringify(res.data.data.user));
-        navigate("/dashboard");
-        toast.success("Login Successful");
-      })
-      .catch((err) => {
-        console.log(err);
-        if (err?.response?.status === 401) {
-          toast.error("Invalid Email or Password!");
-          setLoading(false);
-          return;
-        }
-        toast.error("Something went wrong, Please try again!");
-        setLoading(false);
       });
-    // }
+      localStorage.setItem("access_token", res.data.data.access_token);
+      localStorage.setItem("user", JSON.stringify(res.data.data.user));
+      setLoading(false);
+      navigate("/dashboard");
+      toast.success("Login Successful");
+    } catch (err) {
+      // console.log(err);
+      if (err?.response?.status === 401) {
+        toast.error("Invalid Email or Password!");
+        setLoading(false);
+        return;
+      }
+      toast.error("Something went wrong, Please try again!");
+      setLoading(false);
+    }
   };
   useEffect(() => {
     localStorage.clear();

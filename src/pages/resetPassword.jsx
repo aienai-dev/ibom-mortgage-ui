@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import axiosInstance from "../api/axios";
 
 const Resetpassword = () => {
   const loginBg =
@@ -69,22 +70,21 @@ const Resetpassword = () => {
       setFormError({ ...formError, ...formValidation() });
     } else {
       setLoading(true);
-      axios
-        .post("https://ibom-mortgage-api.fly.dev" + "/auth/reset-password", {
+      try {
+        axiosInstance.post("/auth/reset-password", {
           auth: {
             ...formData,
             reset_token: token,
           },
-        })
-        .then((res) => {
-          setLoading(false);
-          navigate("/login");
-          toast.success("Password Successfully Reset");
-        })
-        .catch((err) => {
-          setLoading(false);
-          toast.error("Something went wrong, Please try again!");
         });
+        setLoading(false);
+        navigate("/login");
+        toast.success("Password changed successfully");
+      } catch (err) {
+        // console.log(err);
+        setLoading(false);
+        toast.error("Something went wrong, Please try again!");
+      }
     }
   };
   return (

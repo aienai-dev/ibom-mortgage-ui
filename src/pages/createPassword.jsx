@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PasswordInput } from "../components/input";
 import Loader from "../components/loader";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -75,17 +75,16 @@ const CreatePassword = () => {
     } else {
       setLoading(true);
       try {
-        const res = await axiosInstance.post("/auth/create-password", {
+        await axiosInstance.post("/auth/create-password", {
           auth: {
             ...formData,
             reg_token: token,
           },
         });
-        localStorage.setItem("access_token", res.data.data.access_token);
-        localStorage.setItem("user", JSON.stringify(res.data.data.user));
+
         setLoading(false);
-        navigate("/dashboard");
-        toast.success("Password Successfully Created");
+        navigate("/login");
+        toast.success("Password  Created Successfully");
       } catch (err) {
         console.log(err);
         setLoading(false);

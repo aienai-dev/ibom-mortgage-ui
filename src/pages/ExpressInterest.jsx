@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Footer from "../components/new/Footer";
-// import InterestForm from "../components/interestForm";
 import Nav from "../components/new/Nav";
 import InterestForm from "../components/forms/Interests";
 
