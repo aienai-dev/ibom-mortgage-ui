@@ -112,6 +112,7 @@ const InterestForm = () => {
         const res = await axiosInstance.post("/auth/register", {
           user: {
             ...formData,
+            email: formData.email.toLowerCase(),
             employment_status: formData.employment_status
               .toLowerCase()
               .replace(" ", "-"),
@@ -129,6 +130,7 @@ const InterestForm = () => {
       } catch (err) {
         console.log(err);
         if (err?.response?.data?.status === 405) {
+          console.log(err);
           showToast(
             err?.response?.data?.error || "Something went wrong",
             "error"

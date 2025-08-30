@@ -69,27 +69,27 @@ const CreatePassword = () => {
       error.confirm_password = "Password do not match*";
     return error;
   };
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (Object.keys(formValidation()).length > 0) {
       setFormError({ ...formError, ...formValidation() });
     } else {
       setLoading(true);
-      axiosInstance
-        .post("/auth/create-password", {
+      try {
+        const res = await axiosInstance.post("/auth/create-password", {
           auth: {
             ...formData,
             reg_token: token,
           },
-        })
-        .then((res) => {
-          setLoading(false);
-          navigate("/dashboard");
-          toast.success("Password Successfully Created");
-        })
-        .catch((err) => {
-          setLoading(false);
-          toast.error("Something went wrong, Please try again!");
         });
+        localStorage.setItem("access_token", res.data.data.access_token);
+        localStorage.setItem("user", JSON.stringify(res.data.data.user));
+        setLoading(false);
+        navigate("/dashboard");
+        toast.success("Password Successfully Created");
+      } catch (err) {
+        setLoading(false);
+        toast.error("Something went wrong, Please try again!");
+      }
     }
   };
   useEffect(() => {
